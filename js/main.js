@@ -1,3 +1,10 @@
+const salida= () =>{
+    if(confirm("¿Desea finalizar el Juego?")){
+        return true;
+    }
+    return false;
+}
+
 let pc=Math.floor(Math.random()*101);
 alert("<< ADIVINA EL NÚMERO ESCONDIDO >>\n Este juego consiste en adivinar un número que el computador a seleccionado de forma aleatoria en un rango de 0 al 100...\n"+
 "Iniciará con 200 puntos y por cada intento fallido perderá un monto que inicia en 5 puntos e incrementará 5 puntos adicionales por cada intento, es decir en la primer intento fallido pierde 5 puntos, luego 10, 15, 20...etc.\nEl juego finalizará al perder todos los puntos o al adivinar el número escondido...JUGUEMOS.");
@@ -7,9 +14,9 @@ let puntosPerdidos=5;
 let opciones="";
 let i=1;
 do{        
-    user=parseInt(prompt(`INTENTO Número: ${i}.\nNumeros ingresados anteriormente[${opciones}]\nPuntaje actual: << ${puntaje} PUNTOS >>\n\nIngrese su opción:`));    
-    if(isNaN(user)){        
-        if(confirm("¿Desea finalizar el Juego?")){
+    user=parseInt(prompt(`INTENTO Número: ${i}.\nNumeros ingresados anteriormente[${opciones}]\nPuntaje actual: << ${puntaje} PUNTOS >>\n\nIngrese su opción:`));            
+    if(isNaN(user)){          
+        if(salida()){
             break;
         }
     }
@@ -34,3 +41,4 @@ if(isNaN(user)){
 else{
     alert(`PERDIÓ, sus puntos han llegado a 0`);
 }
+
